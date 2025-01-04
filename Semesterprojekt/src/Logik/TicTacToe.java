@@ -95,7 +95,6 @@ public class TicTacToe {
 			if(pruefeBelegtesFeld(ausgewaehltesFeld)) throw new Exception();
 		} catch (Exception e) {
 			System.out.println("Es wurde keine passende Eingabe getätigt,\nversuchen Sie es erneut...");
-			//e.printStackTrace();
 			erfasseEingabe();
 		}
 	}
