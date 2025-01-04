@@ -104,11 +104,11 @@ public class TicTacToe {
 		
 		System.out.println("Zu pruefender Index: "+index);
 		if (belegteFelder.get(index) == 'X' || belegteFelder.get(index) == 'O') {
-			System.out.println("Feld " + ausgewaehltesFeld + " schon belegt, machen Sie eine erneute Eingabe...");
+			System.out.println("Feld " + index + " schon belegt, machen Sie eine erneute Eingabe...");
 			return true;
 		}
 		
-		belegteFelder.put(ausgewaehltesFeld, aktuellerSpieler);
+		belegteFelder.put(index, aktuellerSpieler);
 		return false;
 		
 	}
