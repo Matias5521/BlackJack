@@ -29,7 +29,7 @@ public class TicTacToe {
 		counter = 0;
 		
 		Scanner s = new Scanner(System.in);
-		System.out.println("\nWollen Sie mit einer GUI('gui' eingeben) oder mit der Konsole('konsole' eingeben) spielen?");
+		System.out.println("\nWollen Sie mit einer GUI('gui' eingeben) oder mit der Konsole('konsole' eingeben) spielen?\nZum beenden einfach 'ende' eingeben.");
 		String befehl = s.nextLine();
 		
 		if (befehl.equalsIgnoreCase("gui")) {
