@@ -9,10 +9,9 @@ public class TicTacToe {
 	
 	public TreeMap<Integer, Character> belegteFelder = new TreeMap<>();
 	
-	private int counter;
+	private int counter, ausgewaehltesFeld;
 	private GUI gui;
 	private char aktuellerSpieler;
-	private int ausgewaehltesFeld;
 	private int[] gewinnerIndexe = new int[3];
 	
 	public TicTacToe() throws Exception {
@@ -30,6 +29,7 @@ public class TicTacToe {
 		
 		Scanner s = new Scanner(System.in);
 		System.out.println("\nWollen Sie mit einer GUI('gui' eingeben) oder mit der Konsole('konsole' eingeben) spielen?\nZum beenden einfach 'ende' eingeben.");
+		System.out.print(">>");
 		String befehl = s.nextLine();
 		
 		if (befehl.equalsIgnoreCase("gui")) {

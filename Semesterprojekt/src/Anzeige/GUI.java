@@ -142,9 +142,7 @@ public class GUI extends JFrame{
 			    }
 			});
 			
-
 			b.setVisible(true);
-			
 			
 			buttons.add(b);
 			jp.add(b);
