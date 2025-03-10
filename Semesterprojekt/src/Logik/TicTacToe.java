@@ -19,7 +19,7 @@ public class TicTacToe {
 	private int[] gewinnerIndexe = new int[3];
 
 	private int counter, ausgewaehltesFeld, modus;
-	private char aktuellerSpieler;
+	private char aktuellerSpieler, spielerBeginn;
 	private boolean aiIstDran;
 
 	public TicTacToe() throws Exception {
@@ -38,23 +38,25 @@ public class TicTacToe {
 		System.out.print(">>");
 		String befehl = s.nextLine();
 
+		ermittleModus();
+		
 		if (befehl.equalsIgnoreCase("gui")) {
-
-			ermittleModus();
 
 			if (modus == 1 || modus == 2) {
 
-				if (modus == 2)
-					System.out.println("Sie sind X die AI ist O.");
 				System.out.println("Um ein Feld für ein Zug auszuwählen muss dieses Feld angeklickt werden...");
 
 				gui = new GUI(this);
 
+				if (aktuellerSpieler == 'O' && aiIstDran)
+					actionListenerInhalt(gui.getButtons().get(makeTurn()));
+
 			}
 
 		} else if (befehl.equalsIgnoreCase("konsole")) {
+			
+			if(modus == 1) ermittleBeginner();
 
-			ermittleModus();
 
 			System.out.println(
 					"Die Felder sind von 0 bis 8 durchnummerriert.\nUm ein Feld für ein Zug auszuwählen muss die Zahl des Feldes eingegeben werden...");
@@ -102,11 +104,41 @@ public class TicTacToe {
 			if (modus < 1 || modus > 3) {
 				throw new InputMismatchException();
 			}
-		} catch (InputMismatchException e) {
+		} catch (InputMismatchException ime) {
 			System.out.println("Es wurde keine gültige Eingabe getätigt!");
 			ermittleModus();
 		}
 
+	}
+
+	private void ermittleBeginner() {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Wer soll beginnen? (X oder O eingeben...)");
+		System.out.print(">>");
+		try {
+			char eingabe = s.next().toUpperCase().charAt(0);
+			if (eingabe == 'X' || eingabe == 'O')
+				aktuellerSpieler = eingabe;
+			else
+				throw new Exception();
+		} catch (Exception e) {
+			System.out.println("Gib genau ein X oder O ein...");
+			ermittleBeginner();
+		}
+
+		/*
+		 * else if(modus == 2) {
+		 * System.out.println("Soll der Spieler oder die AI beginnen?");
+		 * System.out.print(">>"); String befehl = s.nextLine(); try {
+		 * if(befehl.equalsIgnoreCase("ai")) { aiIstDran = true;
+		 * 
+		 * System.out.println("Die AI beginnt also..."); }else
+		 * if(befehl.equalsIgnoreCase("spieler")) {
+		 * System.out.println("Der Spieler beginnt also..."); spielerBeginn =
+		 * aktuellerSpieler = 'X'; }else { throw new Exception(); } }catch(Exception e)
+		 * { System.out.println("Eingabe konnte nicht verarbeitet werden!");
+		 * ermittleBeginner(); } }
+		 */
 	}
 
 	private void fuelleTreeMap() {
@@ -134,11 +166,15 @@ public class TicTacToe {
 
 		try {
 
-			if (modus == 1 || modus == 2 && aktuellerSpieler == 'X')
+			if (modus == 1) {
 
 				ausgewaehltesFeld = s.nextInt();
 
-			if (modus == 2 && aiIstDran || modus == 3) {
+			} else if (modus == 2 && !aiIstDran && aktuellerSpieler == 'X') {
+
+				ausgewaehltesFeld = s.nextInt();
+
+			} else if (modus == 2 && aiIstDran && aktuellerSpieler == 'O') {
 
 				ausgewaehltesFeld = makeTurn();
 
@@ -155,7 +191,7 @@ public class TicTacToe {
 		}
 	}
 
-	private int makeTurn() {
+	public int makeTurn() {
 		int bestMove = -1;
 		int bestScore = Integer.MIN_VALUE; // Maximierung für AI (O)
 
@@ -288,13 +324,12 @@ public class TicTacToe {
 
 		if (aktuellerSpieler == 'X') {
 			aktuellerSpieler = 'O';
-			if (modus == 2)
-				aiIstDran = true;
+
 		} else {
 			aktuellerSpieler = 'X';
-			if (modus == 2)
-				aiIstDran = false;
 		}
+
+		if(modus == 2) aiIstDran = !aiIstDran;
 	}
 
 	public void resetGame() {
@@ -302,7 +337,7 @@ public class TicTacToe {
 		counter = 0;
 		aktuellerSpieler = 'X';
 		aiIstDran = false;
-
+		
 		fuelleTreeMap();
 
 	}
@@ -317,5 +352,9 @@ public class TicTacToe {
 
 	public boolean isAiIstDran() {
 		return aiIstDran;
+	}
+
+	public char getAktuellerSpieler() {
+		return aktuellerSpieler;
 	}
 }

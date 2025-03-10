@@ -104,6 +104,8 @@ public class GUI extends JFrame {
 				}
 				
 				ttt.resetGame();
+				
+				//if(ttt.getAktuellerSpieler() == 'O' && ttt.isAiIstDran()) ttt.actionListenerInhalt(buttons.get(ttt.makeTurn()));
 
 				revalidate();
 				repaint();
