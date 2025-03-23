@@ -1,3 +1,2 @@
-# TicTacToe
-
-Semesteraufgabe von Matias Mas Viehl für Pr1.
+# Black-Jack
+Qualifier-Aufgabe von Matias Mas Viehl für Pr2.
