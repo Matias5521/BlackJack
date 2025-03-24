@@ -15,6 +15,12 @@ public class BlackJackSpiel {
 		Scanner s = new Scanner(System.in);
 		
 		while(!ende) {
+			
+			if (hand.isBlackJack()) {
+				System.out.println("Es wurde ein Blackjack erreicht:\n"+hand.toString());
+				System.exit(0);
+			}
+			
 			System.out.println("Wollen Sie eine weitere Karte ziehen? (j/n)");
 			
 			try {
@@ -43,7 +49,7 @@ public class BlackJackSpiel {
 				break;
 			}finally {
 				System.out.println("Ihre aktuellen Punkte: "+hand.getPunkte());
-				if (hand.isBlackJack()) System.out.println("Es wurde ein Blackjack erreicht:\n"+hand.toString());
+				
 			}
 		}
 		
