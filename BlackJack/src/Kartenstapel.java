@@ -30,7 +30,7 @@ public class Kartenstapel {
 	}
 
 	public Karte getKarte() {
-		
+
 		if (karten.size() == 0)
 			throw new RuntimeException();
 		Random r = new Random();
