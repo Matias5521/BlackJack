@@ -1,11 +1,16 @@
+package UI;
 import java.util.InputMismatchException;
+
 import java.util.Scanner;
+
+import Logik.BlackJackSpiel;
+
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		BlackJackSpiel bjs = new BlackJackSpiel(new Kartenstapel());
+		BlackJackSpiel bjs = new BlackJackSpiel();
 		
 		System.out.println("Das Spiel wurde gestartet.\nEs kann nur ein Spieler spielen und dass auch nur einmal\n Um erneut zu spielen muss das Programm neu gestartet werden.");
 		

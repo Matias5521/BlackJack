@@ -1,4 +1,4 @@
-import java.util.*;
+package Logik;
 
 public class BlackJackSpiel {
 	
@@ -6,9 +6,7 @@ public class BlackJackSpiel {
 	private Kartenstapel ks = new Kartenstapel();
 	private boolean ende = false;
 
-	public BlackJackSpiel(Kartenstapel ks) {
-		
-		this.ks = ks;
+	public BlackJackSpiel() {
 		
 	}
 	

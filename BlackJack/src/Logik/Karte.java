@@ -1,4 +1,4 @@
-import java.util.InputMismatchException;
+package Logik;
 import java.util.Scanner;
 
 public class Karte {
