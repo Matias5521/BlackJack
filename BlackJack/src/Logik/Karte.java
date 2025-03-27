@@ -1,5 +1,4 @@
 package Logik;
-import java.util.Scanner;
 
 public class Karte {
 
@@ -23,32 +22,17 @@ public class Karte {
 		if (karte[1].equals("Bube") || karte[1].equals("Dame") || karte[1].equals("König")) {
 			punkte = 10;
 		} else if (karte[1].equals("Ass")) {
-			punkte = -1; 
+			punkte = 11; 
 		} else {
 			punkte = Integer.parseInt(karte[1]);
 		}
 	}
 
-	public void waehleWertAss() {
-
-		Scanner s = new Scanner(System.in);
-		System.out.println("Welchen Wert soll das Ass haben? (nur 1 oder 11 möglich)");
-		
-		try {
-			int wert = Integer.parseInt(s.nextLine());
-			
-			if (wert != 1 && wert != 11) throw new NumberFormatException();
-			else punkte = wert;
-			
-		} catch (NumberFormatException e) {
-			System.out.println("Geben Sie einen korrekten Wert ein...");
-			waehleWertAss();
-			e.printStackTrace();
-		}
-
-	}
-
 	public int getPunkte() {
 		return punkte;
+	}
+	
+	public void setPunkte(int punkte) {
+		this.punkte = punkte;
 	}
 }

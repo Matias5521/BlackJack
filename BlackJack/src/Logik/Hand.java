@@ -24,11 +24,13 @@ public class Hand {
 	}
 	
 	public void addKarte() {
+		Karte k;
 		if(karten.size() < 10) {
-			Karte k = ks.getKarte();
+			k = ks.getKarte();
 			karten.add(k);
 		}
 		else throw new RuntimeException();
+		
 	}
 	
 	public int getPunkte() {
@@ -41,6 +43,10 @@ public class Hand {
 	
 	public boolean isBlackJack() {
 		return karten.size() == 2 && getPunkte() == 21;
+	}
+
+	public ArrayList<Karte> getKarten() {
+		return karten;
 	}
 
 }

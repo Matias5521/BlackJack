@@ -1,6 +1,7 @@
 package Logik;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Kartenstapel {
 
@@ -32,14 +33,10 @@ public class Kartenstapel {
 
 	public Karte getKarte() {
 
-		if (karten.size() == 0)
-			throw new RuntimeException();
+		if (karten.size() == 0)throw new RuntimeException();
 		Random r = new Random();
 		int randIndex = r.nextInt(0, 52);
 		Karte randKarte = karten.get(randIndex);
-
-		if (randKarte.getPunkte() == -1)
-			randKarte.waehleWertAss();
 		karten.remove(randKarte);
 
 		return randKarte;
@@ -54,5 +51,4 @@ public class Kartenstapel {
 		}
 		return counter;
 	}
-
 }
