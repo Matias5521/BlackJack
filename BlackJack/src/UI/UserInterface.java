@@ -24,17 +24,17 @@ public class UserInterface {
 		System.out.println("Das Spiel wurde gestartet.\nEs kann nur ein Spieler spielen und dass auch nur einmal\nUm erneut zu spielen muss das Programm neu gestartet werden.");
 
 		bjs.getNeueHand();
+		
+		if (bjs.pruefeBlackJack()) {
+			System.out.println("Es wurde ein Blackjack erreicht:\n" + bjs.ausgabeHand());
+			System.exit(0);
+		}
 
 		Scanner s = new Scanner(System.in);
 
 		while (!bjs.isEnde()) {
 
 			ausgabeAktuellerStand();
-
-			if (bjs.pruefeBlackJack()) {
-				System.out.println("Es wurde ein Blackjack erreicht:\n" + bjs.ausgabeHand());
-				System.exit(0);
-			}
 
 			System.out.println("Wollen Sie eine weitere Karte ziehen? (j/n)");
 

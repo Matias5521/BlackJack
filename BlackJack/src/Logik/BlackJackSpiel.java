@@ -11,6 +11,7 @@ public class BlackJackSpiel {
 	public BlackJackSpiel() {
 	}
 	
+	//warum als return type Hand ???
 	public Hand getNeueHand() {
 		hand = new Hand(ks);
 		return hand;
