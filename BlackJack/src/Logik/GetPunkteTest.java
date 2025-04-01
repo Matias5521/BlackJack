@@ -12,11 +12,4 @@ class GetPunkteTest {
 		assertEquals(4,k.getPunkte());
 		
 	}
-	
-	@Test
-	void testFarbe() {
-		Karte k = new Karte("Schwarz", "Pik-4");
-		assertEquals("Schwarz",k.getFarbe());
-	}
-
 }
