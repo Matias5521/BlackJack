@@ -26,8 +26,14 @@ public class Hand {
 	public void addKarte() {
 		Karte k;
 		if(karten.size() < 10) {
-			k = ks.getKarte();
-			karten.add(k);
+			
+			try {
+				k = ks.getKarte();
+				karten.add(k);
+			}catch(RuntimeException e) {
+				//? Keine Augabe in Logik moeglich
+			}
+			
 		}
 		else throw new RuntimeException();
 		
