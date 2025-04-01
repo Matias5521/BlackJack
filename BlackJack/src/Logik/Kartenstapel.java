@@ -7,7 +7,7 @@ public class Kartenstapel {
 
 	private ArrayList<Karte> karten = new ArrayList<>();
 
-	protected Kartenstapel() {
+	Kartenstapel() {
 
 		String[] farben = { "Schwarz", "Rot" };
 		String[] symbole = { "Kreuz", "Pik", "Herz", "Karo" };

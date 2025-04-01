@@ -5,7 +5,7 @@ public class Karte {
 	private String farbe, karte;
 	private int punkte;
 
-	protected Karte(String farbe, String karte) {
+	Karte(String farbe, String karte) {
 		this.farbe = farbe;
 		this.karte = karte;
 		weisePunkteZu();

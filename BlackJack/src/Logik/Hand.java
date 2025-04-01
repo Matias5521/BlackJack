@@ -6,7 +6,7 @@ public class Hand {
 	private ArrayList<Karte> karten = new ArrayList<>();
 	private Kartenstapel ks;
 	
-	protected Hand(Kartenstapel ks) {
+	Hand(Kartenstapel ks) {
 		
 		if(ks != null) this.ks = ks;
 		for(int i=0;i<2;i++) {
