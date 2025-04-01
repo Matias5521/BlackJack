@@ -7,8 +7,16 @@ import org.junit.jupiter.api.Test;
 class GetPunkteTest {
 
 	@Test
-	void test() {
-		assertEquals(4, new Karte("Schwarz", "Pik-4").getPunkte());
+	void testPunkte() {
+		Karte k = new Karte("Schwarz", "Pik-4");
+		assertEquals(4,k.getPunkte());
+		
+	}
+	
+	@Test
+	void testFarbe() {
+		Karte k = new Karte("Schwarz", "Pik-4");
+		assertEquals("Schwarz",k.getFarbe());
 	}
 
 }

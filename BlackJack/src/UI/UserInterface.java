@@ -52,7 +52,7 @@ public class UserInterface {
 				}
 
 				if (bjs.pruefeEnde()) {
-					bjs.verteilePunkteNeu();
+					bjs.verteilePunkteNeu(); //hier wird eventuell ein Ass Wert neu belegt
 					System.out.println(
 							"Es wurden 21 oder mehr Punkte erreicht, der Versuch ist beendet!\nDas Ergebnis ist: "
 									+ bjs.ausgabePunkteKarte());

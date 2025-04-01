@@ -35,4 +35,12 @@ public class Karte {
 	public void setPunkte(int punkte) {
 		this.punkte = punkte;
 	}
+
+	public String getFarbe() {
+		return farbe;
+	}
+
+	public String getKarte() {
+		return karte;
+	}
 }
