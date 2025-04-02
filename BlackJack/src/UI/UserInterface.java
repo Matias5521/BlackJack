@@ -25,28 +25,21 @@ public class UserInterface {
 
 		bjs.getNeueHand();
 		
-		if (bjs.pruefeEnde()) {
-			bjs.verteilePunkteNeu(); //hier wird eventuell ein Ass Wert neu belegt
-			System.out.println(
-					"Es wurden 21 oder mehr Punkte erreicht, der Versuch ist beendet!\nDas Ergebnis ist: "
-							+ bjs.ausgabePunkteKarte());
-			System.exit(0);
-		}
-		
 		if (bjs.pruefeBlackJack()) {
 			System.out.println("Es wurde ein Blackjack erreicht:\n" + bjs.ausgabeHand());
 			System.exit(0);
 		}
+		
+		ausgabeAktuellerStand();
 
 		Scanner s = new Scanner(System.in);
+	
 
 		while (!bjs.isEnde()) {
 
-			ausgabeAktuellerStand();
-
 			System.out.println("Wollen Sie eine weitere Karte ziehen? (j/n)");
-
 			try {
+				
 				String input = s.nextLine();
 
 				if (input.equalsIgnoreCase("j")) {
