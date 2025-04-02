@@ -1,4 +1,5 @@
 package Logik;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -9,6 +10,14 @@ public class Kartenstapel {
 
 	Kartenstapel() {
 
+		befuelleKartenstapel();
+
+		System.out.println("Der Kartenstapel ist bereit.");
+
+	}
+	
+	private void befuelleKartenstapel() {
+		
 		String[] farben = { "Schwarz", "Rot" };
 		String[] symbole = { "Kreuz", "Pik", "Herz", "Karo" };
 		String[] werte = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Bube", "Dame", "König", "Ass" };
@@ -26,20 +35,22 @@ public class Kartenstapel {
 				karten.add(new Karte(farbe, symbol + "-" + wert));
 			}
 		}
-
-		System.out.println("Der Kartenstapel ist bereit.");
-
+		
 	}
 
-	public Karte getKarte() throws RuntimeException{
+	public Karte getKarte() throws RuntimeException {
 
-		if (karten.size() == 0)throw new RuntimeException();
-		Random r = new Random();
-		int randIndex = r.nextInt(0, 52);
-		Karte randKarte = karten.get(randIndex);
-		karten.remove(randKarte);
+		if (karten.size() > 0) {
 
-		return randKarte;
+			Random r = new Random();
+			int randIndex = r.nextInt(0, 52);
+			Karte randKarte = karten.get(randIndex); 
+			karten.remove(randKarte);
+			return randKarte;
+
+		} else {
+			throw new RuntimeException();
+		}
 
 	}
 

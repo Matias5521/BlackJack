@@ -55,4 +55,8 @@ public class BlackJackSpiel {
 			}
 		}
 	}
+
+	public Kartenstapel getKs() {
+		return ks;
+	}
 }

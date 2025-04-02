@@ -38,6 +38,7 @@ public class UserInterface {
 		while (!bjs.isEnde()) {
 
 			System.out.println("Wollen Sie eine weitere Karte ziehen? (j/n)");
+			
 			try {
 				
 				String input = s.nextLine();
@@ -61,7 +62,9 @@ public class UserInterface {
 				}
 
 			} catch (InputMismatchException e) {
-				System.out.println("Falsche Eingabe, versuchen Sie es erneut!");
+				System.err.println("Falsche Eingabe, versuchen Sie es erneut!");
+			} catch (RuntimeException re) {
+				System.err.println("Es sind bereits alle Karten vergeben oder der aktuelle Spieler kann keine Karte mehr ziehen!");
 			}
 		}
 	}
