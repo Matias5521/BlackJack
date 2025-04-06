@@ -18,7 +18,6 @@ public class Kartenstapel {
 	
 	private void befuelleKartenstapel() {
 		
-		String[] farben = { "Schwarz", "Rot" };
 		String[] symbole = { "Kreuz", "Pik", "Herz", "Karo" };
 		String[] werte = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Bube", "Dame", "König", "Ass" };
 

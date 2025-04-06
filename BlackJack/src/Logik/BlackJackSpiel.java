@@ -7,11 +7,17 @@ public class BlackJackSpiel {
 	private Hand hand;
 	private Kartenstapel ks = new Kartenstapel();
 	private boolean ende = false;
+	private ArrayList<Mensch> spieler = new ArrayList<>();
 
 	public BlackJackSpiel() {
 	}
 	
-	//warum als return type Hand ???
+	public void erstelleSpieler(String name) {
+		Spieler s = new Spieler(name);
+		spieler.add(s);
+		s.setHand1(getNeueHand());
+	}
+	
 	public Hand getNeueHand() {
 		hand = new Hand(ks);
 		return hand;
@@ -29,12 +35,17 @@ public class BlackJackSpiel {
 		return hand.getPunkte() >= 21;
 	}
 	
-	public String ausgabeHand() {
-		return hand.toString();
+	public String ausgabeErgebnisse() {
+		return "";
 	}
 	
 	public boolean pruefeBlackJack() {
-		return hand.isBlackJack();
+		boolean bj = false;
+		for(Mensch s: spieler) {
+			
+			if (s.getHand1().isBlackJack()) bj = true;
+		}
+		return bj;
 	}
 	
 	public void fuegeKarteHinzu() {
@@ -58,5 +69,9 @@ public class BlackJackSpiel {
 
 	public Kartenstapel getKs() {
 		return ks;
+	}
+
+	public ArrayList<Mensch> getSpieler() {
+		return spieler;
 	}
 }
