@@ -22,7 +22,7 @@ public class Hand {
 	}
 
 	public String toString() {
-		String r = "Der Spieler verfügt über folgende Karten:\n";
+		String r = "\n";
 		for (Karte k : karten) {
 			r += k.toString() + "\n";
 		}

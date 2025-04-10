@@ -11,7 +11,11 @@ public abstract class Mensch {
 	}
 	
 	public String toString() {
-		return "";
+		return "Person "+name+" mit dem Einsatz von "+einsatz+" hat folgende Karten: "+hand1.toString();
+	}
+	
+	public void addKarte() {
+		hand1.addKarte();
 	}
 	
 	public boolean pruefeBust() {
@@ -45,7 +49,7 @@ public abstract class Mensch {
 	}
 
 	public void setEinsatz(int einsatz) {
-		this.einsatz = einsatz;
+		this.einsatz += einsatz;
 	}
 
 	public String getName() {
